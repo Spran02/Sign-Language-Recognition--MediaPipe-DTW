@@ -49,6 +49,9 @@ print("\nDownloading videos of signs from YouTube\n")
 
 # Create the dataset based on yt_links.csv
 df_links = pd.read_csv("yt_links.csv")
+
+df_links.rename(columns={'id': 'video_id'}, inplace=True)
+
 for idx, row in tqdm(df_links.iterrows(), total=df_links.shape[0]):
     download_video(*row)
 
